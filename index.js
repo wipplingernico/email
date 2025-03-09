@@ -1,8 +1,10 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
+const cors = require('cors'); // Neu hinzufügen
 const app = express();
 
 app.use(express.json());
+app.use(cors()); // CORS für alle Anfragen aktivieren
 
 app.post('/send-email', (req, res) => {
     const { pdfBase64 } = req.body;
@@ -37,6 +39,5 @@ app.post('/send-email', (req, res) => {
     });
 });
 
-// Render verwendet oft einen dynamischen Port, daher process.env.PORT verwenden
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server läuft auf Port ${port}`));
