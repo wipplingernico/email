@@ -24,9 +24,10 @@ app.post('/send-email', (req, res) => {
 
     const mailOptions = {
         from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_USER,
+        to: 'info@woshup.de', // E-Mail an info@woshup.de senden
+        cc: 'nico.wipplinger@wiroconsulting.at', // Nico Wipplinger in CC setzen
         subject: 'Neue WOSHUP Bestellung',
-        text: 'Eine neue Bestellung wurde eingereicht.',
+        text: 'Eine neue B2B Bestellung wurde eingereicht.',
         attachments: [
             {
                 filename: 'WOSHUP_Bestellung.pdf',
